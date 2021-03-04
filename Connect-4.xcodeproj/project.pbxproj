@@ -100,6 +100,7 @@
 		AB6EA0D425E70B4E00450E51 /* Connect-4 */ = {
 			isa = PBXGroup;
 			children = (
+				ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */,
 				AB6EA10425E70B5700450E51 /* Models */,
 				AB6EA0D525E70B4E00450E51 /* Connect_4App.swift */,
 				AB6EA0D725E70B4E00450E51 /* ContentView.swift */,
@@ -141,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				AB6EA10525E70B6400450E51 /* Grid.swift */,
-				ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
