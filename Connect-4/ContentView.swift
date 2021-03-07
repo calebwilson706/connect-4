@@ -25,6 +25,7 @@ struct ContentView: View {
                 }){
                     Text("Wrong Answer")
                 }
+                Text("Current Team : " + currentTeam.rawValue)
                 Spacer()
                 Button(action : {
                     resetGame()
@@ -104,6 +105,7 @@ struct ContentView: View {
         myGrid.grid = ConnectFourGrid().grid
         self.scores[.RED] = 0
         self.scores[.BLUE] = 0
+        self.currentTeam = .RED
     }
 }
 
