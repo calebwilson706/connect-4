@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ColumnHeaderButton : ButtonStyle {
+struct ColumnHeaderButtonConnect4 : ButtonStyle {
     var disabled : Bool
     
     func makeBody(configuration: Configuration) -> some View {

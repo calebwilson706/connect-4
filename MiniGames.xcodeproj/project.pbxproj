@@ -14,6 +14,14 @@
 		AB6EA0E925E70B4E00450E51 /* Connect_4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */; };
 		AB6EA0F425E70B4E00450E51 /* Connect_4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */; };
 		AB6EA10625E70B6400450E51 /* Connect4Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA10525E70B6400450E51 /* Connect4Grid.swift */; };
+		ABA6C3FA25F6BFD100D989EF /* NavigationControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C3F925F6BFD100D989EF /* NavigationControllerView.swift */; };
+		ABA6C40425F6C18E00D989EF /* Connect4PathFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C40325F6C18E00D989EF /* Connect4PathFinding.swift */; };
+		ABA6C40925F6C1DF00D989EF /* ConnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C40825F6C1DF00D989EF /* ConnectFourGameState.swift */; };
+		ABA6C40E25F6C34A00D989EF /* HangmanPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C40D25F6C34A00D989EF /* HangmanPickerView.swift */; };
+		ABA6C41425F6C62500D989EF /* HangmanOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C41325F6C62500D989EF /* HangmanOptions.swift */; };
+		ABA6C41D25F6DE8600D989EF /* HangmanGameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C41C25F6DE8600D989EF /* HangmanGameStatus.swift */; };
+		ABA6C42925F6DFAB00D989EF /* HangmanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C42825F6DFAB00D989EF /* HangmanView.swift */; };
+		ABA6C43125F6E3E500D989EF /* APIfetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C43025F6E3E500D989EF /* APIfetchData.swift */; };
 		ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +57,14 @@
 		AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4UITests.swift; sourceTree = "<group>"; };
 		AB6EA0F525E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6EA10525E70B6400450E51 /* Connect4Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect4Grid.swift; sourceTree = "<group>"; };
+		ABA6C3F925F6BFD100D989EF /* NavigationControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerView.swift; sourceTree = "<group>"; };
+		ABA6C40325F6C18E00D989EF /* Connect4PathFinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect4PathFinding.swift; sourceTree = "<group>"; };
+		ABA6C40825F6C1DF00D989EF /* ConnectFourGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourGameState.swift; sourceTree = "<group>"; };
+		ABA6C40D25F6C34A00D989EF /* HangmanPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanPickerView.swift; sourceTree = "<group>"; };
+		ABA6C41325F6C62500D989EF /* HangmanOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanOptions.swift; sourceTree = "<group>"; };
+		ABA6C41C25F6DE8600D989EF /* HangmanGameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanGameStatus.swift; sourceTree = "<group>"; };
+		ABA6C42825F6DFAB00D989EF /* HangmanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanView.swift; sourceTree = "<group>"; };
+		ABA6C43025F6E3E500D989EF /* APIfetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIfetchData.swift; sourceTree = "<group>"; };
 		ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,9 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */,
+				ABA6C3FE25F6BFE800D989EF /* ViewsForGames */,
 				AB6EA10425E70B5700450E51 /* Models */,
+				ABA6C3F925F6BFD100D989EF /* NavigationControllerView.swift */,
 				AB6EA0D525E70B4E00450E51 /* MiniGamesApp.swift */,
-				AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */,
 				AB6EA0D925E70B4E00450E51 /* Assets.xcassets */,
 				AB6EA0DE25E70B4E00450E51 /* Info.plist */,
 				AB6EA0DF25E70B4E00450E51 /* MiniGames.entitlements */,
@@ -141,9 +158,48 @@
 		AB6EA10425E70B5700450E51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AB6EA10525E70B6400450E51 /* Connect4Grid.swift */,
+				ABA6C41225F6C61100D989EF /* Hangman */,
+				ABA6C40225F6C17700D989EF /* Connect4 */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ABA6C3FE25F6BFE800D989EF /* ViewsForGames */ = {
+			isa = PBXGroup;
+			children = (
+				ABA6C42725F6DF9200D989EF /* Hangman */,
+				AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */,
+			);
+			path = ViewsForGames;
+			sourceTree = "<group>";
+		};
+		ABA6C40225F6C17700D989EF /* Connect4 */ = {
+			isa = PBXGroup;
+			children = (
+				AB6EA10525E70B6400450E51 /* Connect4Grid.swift */,
+				ABA6C40325F6C18E00D989EF /* Connect4PathFinding.swift */,
+				ABA6C40825F6C1DF00D989EF /* ConnectFourGameState.swift */,
+			);
+			path = Connect4;
+			sourceTree = "<group>";
+		};
+		ABA6C41225F6C61100D989EF /* Hangman */ = {
+			isa = PBXGroup;
+			children = (
+				ABA6C41325F6C62500D989EF /* HangmanOptions.swift */,
+				ABA6C41C25F6DE8600D989EF /* HangmanGameStatus.swift */,
+				ABA6C43025F6E3E500D989EF /* APIfetchData.swift */,
+			);
+			path = Hangman;
+			sourceTree = "<group>";
+		};
+		ABA6C42725F6DF9200D989EF /* Hangman */ = {
+			isa = PBXGroup;
+			children = (
+				ABA6C40D25F6C34A00D989EF /* HangmanPickerView.swift */,
+				ABA6C42825F6DFAB00D989EF /* HangmanView.swift */,
+			);
+			path = Hangman;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +331,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA6C42925F6DFAB00D989EF /* HangmanView.swift in Sources */,
 				ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */,
+				ABA6C40E25F6C34A00D989EF /* HangmanPickerView.swift in Sources */,
+				ABA6C3FA25F6BFD100D989EF /* NavigationControllerView.swift in Sources */,
+				ABA6C40925F6C1DF00D989EF /* ConnectFourGameState.swift in Sources */,
+				ABA6C40425F6C18E00D989EF /* Connect4PathFinding.swift in Sources */,
 				AB6EA0D825E70B4E00450E51 /* ConnectFourView.swift in Sources */,
+				ABA6C41D25F6DE8600D989EF /* HangmanGameStatus.swift in Sources */,
+				ABA6C41425F6C62500D989EF /* HangmanOptions.swift in Sources */,
 				AB6EA0D625E70B4E00450E51 /* MiniGamesApp.swift in Sources */,
 				AB6EA10625E70B6400450E51 /* Connect4Grid.swift in Sources */,
+				ABA6C43125F6E3E500D989EF /* APIfetchData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import SwiftUI
 struct MiniGames: App {
     var body: some Scene {
         WindowGroup {
-            ConnectFourView()
+            NavigationControllerView()
         }
     }
 }
