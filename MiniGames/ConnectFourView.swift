@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ConnectFourView: View {
     @ObservedObject var myGrid = ConnectFourGrid()
     @State var currentTeam = TheStatusOfCounter.RED
     @State var showPopUp = false
@@ -109,9 +109,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentFourView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ConnectFourView()
     }
 }
 
@@ -130,5 +130,11 @@ struct CounterView : View {
                     .bold()
             }
         }
+    }
+}
+
+struct CounterView_Previews: PreviewProvider {
+    static var previews: some View {
+        CounterView(status: .EMPTY, number: 10)
     }
 }

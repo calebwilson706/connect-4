@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB6EA0D625E70B4E00450E51 /* Connect_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0D525E70B4E00450E51 /* Connect_4App.swift */; };
-		AB6EA0D825E70B4E00450E51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0D725E70B4E00450E51 /* ContentView.swift */; };
+		AB6EA0D625E70B4E00450E51 /* MiniGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0D525E70B4E00450E51 /* MiniGamesApp.swift */; };
+		AB6EA0D825E70B4E00450E51 /* ConnectFourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */; };
 		AB6EA0DA25E70B4E00450E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6EA0D925E70B4E00450E51 /* Assets.xcassets */; };
 		AB6EA0DD25E70B4E00450E51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6EA0DC25E70B4E00450E51 /* Preview Assets.xcassets */; };
 		AB6EA0E925E70B4E00450E51 /* Connect_4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */; };
 		AB6EA0F425E70B4E00450E51 /* Connect_4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */; };
-		AB6EA10625E70B6400450E51 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA10525E70B6400450E51 /* Grid.swift */; };
+		AB6EA10625E70B6400450E51 /* Connect4Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA10525E70B6400450E51 /* Connect4Grid.swift */; };
 		ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,20 +35,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB6EA0D225E70B4E00450E51 /* Connect-4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Connect-4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB6EA0D525E70B4E00450E51 /* Connect_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4App.swift; sourceTree = "<group>"; };
-		AB6EA0D725E70B4E00450E51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB6EA0D225E70B4E00450E51 /* MiniGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6EA0D525E70B4E00450E51 /* MiniGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGamesApp.swift; sourceTree = "<group>"; };
+		AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourView.swift; sourceTree = "<group>"; };
 		AB6EA0D925E70B4E00450E51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6EA0DC25E70B4E00450E51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB6EA0DE25E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6EA0DF25E70B4E00450E51 /* Connect_4.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Connect_4.entitlements; sourceTree = "<group>"; };
-		AB6EA0E425E70B4E00450E51 /* Connect-4Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-4Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6EA0DF25E70B4E00450E51 /* MiniGames.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniGames.entitlements; sourceTree = "<group>"; };
+		AB6EA0E425E70B4E00450E51 /* MiniGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4Tests.swift; sourceTree = "<group>"; };
 		AB6EA0EA25E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6EA0EF25E70B4E00450E51 /* Connect-4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connect-4UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6EA0EF25E70B4E00450E51 /* MiniGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4UITests.swift; sourceTree = "<group>"; };
 		AB6EA0F525E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6EA10525E70B6400450E51 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		AB6EA10525E70B6400450E51 /* Connect4Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect4Grid.swift; sourceTree = "<group>"; };
 		ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +80,9 @@
 		AB6EA0C925E70B4E00450E51 = {
 			isa = PBXGroup;
 			children = (
-				AB6EA0D425E70B4E00450E51 /* Connect-4 */,
-				AB6EA0E725E70B4E00450E51 /* Connect-4Tests */,
-				AB6EA0F225E70B4E00450E51 /* Connect-4UITests */,
+				AB6EA0D425E70B4E00450E51 /* MiniGames */,
+				AB6EA0E725E70B4E00450E51 /* MiniGamesTests */,
+				AB6EA0F225E70B4E00450E51 /* MiniGamesUITests */,
 				AB6EA0D325E70B4E00450E51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,26 +90,26 @@
 		AB6EA0D325E70B4E00450E51 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB6EA0D225E70B4E00450E51 /* Connect-4.app */,
-				AB6EA0E425E70B4E00450E51 /* Connect-4Tests.xctest */,
-				AB6EA0EF25E70B4E00450E51 /* Connect-4UITests.xctest */,
+				AB6EA0D225E70B4E00450E51 /* MiniGames.app */,
+				AB6EA0E425E70B4E00450E51 /* MiniGamesTests.xctest */,
+				AB6EA0EF25E70B4E00450E51 /* MiniGamesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB6EA0D425E70B4E00450E51 /* Connect-4 */ = {
+		AB6EA0D425E70B4E00450E51 /* MiniGames */ = {
 			isa = PBXGroup;
 			children = (
 				ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */,
 				AB6EA10425E70B5700450E51 /* Models */,
-				AB6EA0D525E70B4E00450E51 /* Connect_4App.swift */,
-				AB6EA0D725E70B4E00450E51 /* ContentView.swift */,
+				AB6EA0D525E70B4E00450E51 /* MiniGamesApp.swift */,
+				AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */,
 				AB6EA0D925E70B4E00450E51 /* Assets.xcassets */,
 				AB6EA0DE25E70B4E00450E51 /* Info.plist */,
-				AB6EA0DF25E70B4E00450E51 /* Connect_4.entitlements */,
+				AB6EA0DF25E70B4E00450E51 /* MiniGames.entitlements */,
 				AB6EA0DB25E70B4E00450E51 /* Preview Content */,
 			);
-			path = "Connect-4";
+			path = MiniGames;
 			sourceTree = "<group>";
 		};
 		AB6EA0DB25E70B4E00450E51 /* Preview Content */ = {
@@ -120,28 +120,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AB6EA0E725E70B4E00450E51 /* Connect-4Tests */ = {
+		AB6EA0E725E70B4E00450E51 /* MiniGamesTests */ = {
 			isa = PBXGroup;
 			children = (
 				AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */,
 				AB6EA0EA25E70B4E00450E51 /* Info.plist */,
 			);
-			path = "Connect-4Tests";
+			path = MiniGamesTests;
 			sourceTree = "<group>";
 		};
-		AB6EA0F225E70B4E00450E51 /* Connect-4UITests */ = {
+		AB6EA0F225E70B4E00450E51 /* MiniGamesUITests */ = {
 			isa = PBXGroup;
 			children = (
 				AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */,
 				AB6EA0F525E70B4E00450E51 /* Info.plist */,
 			);
-			path = "Connect-4UITests";
+			path = MiniGamesUITests;
 			sourceTree = "<group>";
 		};
 		AB6EA10425E70B5700450E51 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AB6EA10525E70B6400450E51 /* Grid.swift */,
+				AB6EA10525E70B6400450E51 /* Connect4Grid.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB6EA0D125E70B4E00450E51 /* Connect-4 */ = {
+		AB6EA0D125E70B4E00450E51 /* MiniGames */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB6EA0F825E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4" */;
+			buildConfigurationList = AB6EA0F825E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGames" */;
 			buildPhases = (
 				AB6EA0CE25E70B4E00450E51 /* Sources */,
 				AB6EA0CF25E70B4E00450E51 /* Frameworks */,
@@ -161,14 +161,14 @@
 			);
 			dependencies = (
 			);
-			name = "Connect-4";
+			name = MiniGames;
 			productName = "Connect-4";
-			productReference = AB6EA0D225E70B4E00450E51 /* Connect-4.app */;
+			productReference = AB6EA0D225E70B4E00450E51 /* MiniGames.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB6EA0E325E70B4E00450E51 /* Connect-4Tests */ = {
+		AB6EA0E325E70B4E00450E51 /* MiniGamesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB6EA0FB25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4Tests" */;
+			buildConfigurationList = AB6EA0FB25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGamesTests" */;
 			buildPhases = (
 				AB6EA0E025E70B4E00450E51 /* Sources */,
 				AB6EA0E125E70B4E00450E51 /* Frameworks */,
@@ -179,14 +179,14 @@
 			dependencies = (
 				AB6EA0E625E70B4E00450E51 /* PBXTargetDependency */,
 			);
-			name = "Connect-4Tests";
+			name = MiniGamesTests;
 			productName = "Connect-4Tests";
-			productReference = AB6EA0E425E70B4E00450E51 /* Connect-4Tests.xctest */;
+			productReference = AB6EA0E425E70B4E00450E51 /* MiniGamesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AB6EA0EE25E70B4E00450E51 /* Connect-4UITests */ = {
+		AB6EA0EE25E70B4E00450E51 /* MiniGamesUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB6EA0FE25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4UITests" */;
+			buildConfigurationList = AB6EA0FE25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGamesUITests" */;
 			buildPhases = (
 				AB6EA0EB25E70B4E00450E51 /* Sources */,
 				AB6EA0EC25E70B4E00450E51 /* Frameworks */,
@@ -197,9 +197,9 @@
 			dependencies = (
 				AB6EA0F125E70B4E00450E51 /* PBXTargetDependency */,
 			);
-			name = "Connect-4UITests";
+			name = MiniGamesUITests;
 			productName = "Connect-4UITests";
-			productReference = AB6EA0EF25E70B4E00450E51 /* Connect-4UITests.xctest */;
+			productReference = AB6EA0EF25E70B4E00450E51 /* MiniGamesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB6EA0CD25E70B4E00450E51 /* Build configuration list for PBXProject "Connect-4" */;
+			buildConfigurationList = AB6EA0CD25E70B4E00450E51 /* Build configuration list for PBXProject "MiniGames" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -237,9 +237,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB6EA0D125E70B4E00450E51 /* Connect-4 */,
-				AB6EA0E325E70B4E00450E51 /* Connect-4Tests */,
-				AB6EA0EE25E70B4E00450E51 /* Connect-4UITests */,
+				AB6EA0D125E70B4E00450E51 /* MiniGames */,
+				AB6EA0E325E70B4E00450E51 /* MiniGamesTests */,
+				AB6EA0EE25E70B4E00450E51 /* MiniGamesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,9 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */,
-				AB6EA0D825E70B4E00450E51 /* ContentView.swift in Sources */,
-				AB6EA0D625E70B4E00450E51 /* Connect_4App.swift in Sources */,
-				AB6EA10625E70B6400450E51 /* Grid.swift in Sources */,
+				AB6EA0D825E70B4E00450E51 /* ConnectFourView.swift in Sources */,
+				AB6EA0D625E70B4E00450E51 /* MiniGamesApp.swift in Sources */,
+				AB6EA10625E70B6400450E51 /* Connect4Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,12 +303,12 @@
 /* Begin PBXTargetDependency section */
 		AB6EA0E625E70B4E00450E51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB6EA0D125E70B4E00450E51 /* Connect-4 */;
+			target = AB6EA0D125E70B4E00450E51 /* MiniGames */;
 			targetProxy = AB6EA0E525E70B4E00450E51 /* PBXContainerItemProxy */;
 		};
 		AB6EA0F125E70B4E00450E51 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB6EA0D125E70B4E00450E51 /* Connect-4 */;
+			target = AB6EA0D125E70B4E00450E51 /* MiniGames */;
 			targetProxy = AB6EA0F025E70B4E00450E51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -434,20 +434,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Connect-4/Connect_4.entitlements";
+				CODE_SIGN_ENTITLEMENTS = MiniGames/MiniGames.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Connect-4/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MiniGames/Preview Content\"";
 				DEVELOPMENT_TEAM = NBY2AG34M4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Connect-4/Info.plist";
+				INFOPLIST_FILE = MiniGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cjw.Connect-4";
+				PRODUCT_BUNDLE_IDENTIFIER = cjw.MiniGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -458,20 +458,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Connect-4/Connect_4.entitlements";
+				CODE_SIGN_ENTITLEMENTS = MiniGames/MiniGames.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Connect-4/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MiniGames/Preview Content\"";
 				DEVELOPMENT_TEAM = NBY2AG34M4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Connect-4/Info.plist";
+				INFOPLIST_FILE = MiniGames/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cjw.Connect-4";
+				PRODUCT_BUNDLE_IDENTIFIER = cjw.MiniGames;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -495,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cjw.Connect-4Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect-4.app/Contents/MacOS/Connect-4";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniGames.app/Contents/MacOS/MiniGames";
 			};
 			name = Debug;
 		};
@@ -517,7 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cjw.Connect-4Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect-4.app/Contents/MacOS/Connect-4";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniGames.app/Contents/MacOS/MiniGames";
 			};
 			name = Release;
 		};
@@ -564,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB6EA0CD25E70B4E00450E51 /* Build configuration list for PBXProject "Connect-4" */ = {
+		AB6EA0CD25E70B4E00450E51 /* Build configuration list for PBXProject "MiniGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6EA0F625E70B4E00450E51 /* Debug */,
@@ -573,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB6EA0F825E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4" */ = {
+		AB6EA0F825E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6EA0F925E70B4E00450E51 /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB6EA0FB25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4Tests" */ = {
+		AB6EA0FB25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGamesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6EA0FC25E70B4E00450E51 /* Debug */,
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB6EA0FE25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "Connect-4UITests" */ = {
+		AB6EA0FE25E70B4E00450E51 /* Build configuration list for PBXNativeTarget "MiniGamesUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB6EA0FF25E70B4E00450E51 /* Debug */,

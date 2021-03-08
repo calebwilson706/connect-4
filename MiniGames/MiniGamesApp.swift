@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct Connect_4App: App {
+struct MiniGames: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConnectFourView()
         }
     }
 }
