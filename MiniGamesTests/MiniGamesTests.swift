@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import Connect_4
+@testable import MiniGames
 
-class Connect_4Tests: XCTestCase {
+class MiniGamesTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

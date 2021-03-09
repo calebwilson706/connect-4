@@ -11,8 +11,8 @@
 		AB6EA0D825E70B4E00450E51 /* ConnectFourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0D725E70B4E00450E51 /* ConnectFourView.swift */; };
 		AB6EA0DA25E70B4E00450E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6EA0D925E70B4E00450E51 /* Assets.xcassets */; };
 		AB6EA0DD25E70B4E00450E51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6EA0DC25E70B4E00450E51 /* Preview Assets.xcassets */; };
-		AB6EA0E925E70B4E00450E51 /* Connect_4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */; };
-		AB6EA0F425E70B4E00450E51 /* Connect_4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */; };
+		AB6EA0E925E70B4E00450E51 /* MiniGamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0E825E70B4E00450E51 /* MiniGamesTests.swift */; };
+		AB6EA0F425E70B4E00450E51 /* MiniGamesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA0F325E70B4E00450E51 /* MiniGamesUITests.swift */; };
 		AB6EA10625E70B6400450E51 /* Connect4Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EA10525E70B6400450E51 /* Connect4Grid.swift */; };
 		ABA6C3FA25F6BFD100D989EF /* NavigationControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C3F925F6BFD100D989EF /* NavigationControllerView.swift */; };
 		ABA6C40425F6C18E00D989EF /* Connect4PathFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C40325F6C18E00D989EF /* Connect4PathFinding.swift */; };
@@ -51,10 +51,10 @@
 		AB6EA0DE25E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6EA0DF25E70B4E00450E51 /* MiniGames.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniGames.entitlements; sourceTree = "<group>"; };
 		AB6EA0E425E70B4E00450E51 /* MiniGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4Tests.swift; sourceTree = "<group>"; };
+		AB6EA0E825E70B4E00450E51 /* MiniGamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGamesTests.swift; sourceTree = "<group>"; };
 		AB6EA0EA25E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6EA0EF25E70B4E00450E51 /* MiniGamesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniGamesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect_4UITests.swift; sourceTree = "<group>"; };
+		AB6EA0F325E70B4E00450E51 /* MiniGamesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGamesUITests.swift; sourceTree = "<group>"; };
 		AB6EA0F525E70B4E00450E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6EA10525E70B6400450E51 /* Connect4Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect4Grid.swift; sourceTree = "<group>"; };
 		ABA6C3F925F6BFD100D989EF /* NavigationControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerView.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		AB6EA0E725E70B4E00450E51 /* MiniGamesTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB6EA0E825E70B4E00450E51 /* Connect_4Tests.swift */,
+				AB6EA0E825E70B4E00450E51 /* MiniGamesTests.swift */,
 				AB6EA0EA25E70B4E00450E51 /* Info.plist */,
 			);
 			path = MiniGamesTests;
@@ -149,7 +149,7 @@
 		AB6EA0F225E70B4E00450E51 /* MiniGamesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AB6EA0F325E70B4E00450E51 /* Connect_4UITests.swift */,
+				AB6EA0F325E70B4E00450E51 /* MiniGamesUITests.swift */,
 				AB6EA0F525E70B4E00450E51 /* Info.plist */,
 			);
 			path = MiniGamesUITests;
@@ -350,7 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6EA0E925E70B4E00450E51 /* Connect_4Tests.swift in Sources */,
+				AB6EA0E925E70B4E00450E51 /* MiniGamesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6EA0F425E70B4E00450E51 /* Connect_4UITests.swift in Sources */,
+				AB6EA0F425E70B4E00450E51 /* MiniGamesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
