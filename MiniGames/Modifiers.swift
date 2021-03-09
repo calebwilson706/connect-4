@@ -33,6 +33,7 @@ struct ColumnHeaderButtonConnect4 : ButtonStyle {
 struct HangmanResetButtonStyle : ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .imageScale(.large)
             .buttonStyle(BaseHangmanButtonStyles())
             .modifier(CursorForButtonStyleMod())
     }
@@ -44,7 +45,7 @@ struct HangmanSelectLetterButtonStyle : ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .buttonStyle(BaseHangmanButtonStyles())
-            .foregroundColor(disabled ? .gray : .white)
+            .foregroundColor(disabled ? .gray : .primary)
             .modifier(CursorForButtonStyleMod(disableThisFeature: disabled))
             
     }

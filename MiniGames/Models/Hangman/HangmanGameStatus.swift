@@ -11,6 +11,7 @@ class HangmanGameStatus : ObservableObject {
     @Published var theWord : String? = nil
     @Published var isLoading : Bool = false
     @Published var selectedLetters = [Character]()
+    @Published var currentStage = 0
     
     func getWordFromOption(_ option : HangmanOptions, extraString : String){
         
@@ -40,12 +41,21 @@ class HangmanGameStatus : ObservableObject {
     }
     
     func addLetterToSelected(_ char : Character) {
-        self.selectedLetters.append(char)
+        
+        if currentStage < 9 {
+            self.selectedLetters.append(char)
+            
+            if !theWord!.contains(char.lowercased()){
+                currentStage += 1
+            }
+        }
+        
     }
     
     func reset() {
         self.theWord = nil
         self.selectedLetters = []
+        self.currentStage = 0
     }
 
 }

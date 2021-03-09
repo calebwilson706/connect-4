@@ -25,7 +25,11 @@ struct HangmanView: View {
             if let wordToDisplay = gameStatus.theWord?.uppercased() {
                 headerView
                 Spacer()
-                
+                Image("h-man-image-\(gameStatus.currentStage)")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight : 300)
+                    .padding(.all)
                 Group {
                     HStack(spacing : 20) {
                         ForEach(0..<wordToDisplay.count) { index in

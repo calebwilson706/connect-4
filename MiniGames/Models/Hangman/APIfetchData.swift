@@ -28,12 +28,11 @@ extension HangmanGameStatus {
                         self.theWord = selectedWord.word
                         self.isLoading = false
                     }
-                } else {
-                    DispatchQueue.main.async {
-                        //no words found
-                        self.isLoading = false
-                    }
+                    return
                 }
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
             }
         }.resume()
     }
