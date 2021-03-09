@@ -14,7 +14,8 @@ enum HangmanOptions : String, CaseIterable {
          bbl = "Related To The Bible", //use topics=bible,christian
          hom = "Sounds Like:",
          animal = "Random Animal", //random element from list below
-         ml = "Related To:"
+         ml = "Related To:",
+         custom = "Input Your Own Word:"
     
 }
 

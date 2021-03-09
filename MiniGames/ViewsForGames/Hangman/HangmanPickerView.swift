@@ -31,6 +31,10 @@ struct HangmanPickerView: View {
                     if (optionsWhichRequireTextField
                             .contains(selectedOverhangingOption)) {
                         TextField("", text: $extraParameterForSpecificQueries)
+                            
+                    }
+                    if (selectedOverhangingOption == .custom){
+                        SecureField("", text: $extraParameterForSpecificQueries)
                     }
                 }
                 

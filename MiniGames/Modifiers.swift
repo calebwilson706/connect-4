@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+//connect 4
+
 struct ColumnHeaderButtonConnect4 : ButtonStyle {
     var disabled : Bool
     
@@ -26,3 +28,45 @@ struct ColumnHeaderButtonConnect4 : ButtonStyle {
     }
 }
 
+//hangman
+
+struct HangmanResetButtonStyle : ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .buttonStyle(BaseHangmanButtonStyles())
+            .modifier(CursorForButtonStyleMod())
+    }
+}
+
+struct HangmanSelectLetterButtonStyle : ButtonStyle {
+    var disabled = false
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .buttonStyle(BaseHangmanButtonStyles())
+            .foregroundColor(disabled ? .gray : .white)
+            .modifier(CursorForButtonStyleMod(disableThisFeature: disabled))
+            
+    }
+}
+struct BaseHangmanButtonStyles : ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.custom("SourceCodePro-SemiBold", size: 13))
+            .background(Color.clear)
+           
+    }
+}
+
+struct CursorForButtonStyleMod : ViewModifier {
+    var disableThisFeature = false
+    func body(content: Content) -> some View {
+        return content.onHover { inside in
+            if inside && !disableThisFeature {
+                NSCursor.pointingHand.push()
+            } else {
+                NSCursor.pop()
+            }
+        }
+    }
+}

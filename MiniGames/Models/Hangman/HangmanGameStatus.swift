@@ -10,6 +10,7 @@ import Foundation
 class HangmanGameStatus : ObservableObject {
     @Published var theWord : String? = nil
     @Published var isLoading : Bool = false
+    @Published var selectedLetters = [Character]()
     
     func getWordFromOption(_ option : HangmanOptions, extraString : String){
         
@@ -18,9 +19,11 @@ class HangmanGameStatus : ObservableObject {
         }
         
         let topLevel = "https://api.datamuse.com/words"
-        let maximumParameter = "&max=25"
+        let maximumParameter = "&max=50"
         
         switch option {
+        case .custom:
+            self.theWord = extraString
         case .rhy:
             makeDatabaseRequest(withUrl: topLevel + "?rel_rhy=\(extraString)" + maximumParameter)
         case .jjb:
@@ -34,6 +37,15 @@ class HangmanGameStatus : ObservableObject {
         case .ml:
             makeDatabaseRequest(withUrl: topLevel + "?ml=\(extraString)" + maximumParameter)
         }
+    }
+    
+    func addLetterToSelected(_ char : Character) {
+        self.selectedLetters.append(char)
+    }
+    
+    func reset() {
+        self.theWord = nil
+        self.selectedLetters = []
     }
 
 }

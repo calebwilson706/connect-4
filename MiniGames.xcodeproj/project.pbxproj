@@ -23,6 +23,7 @@
 		ABA6C42925F6DFAB00D989EF /* HangmanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C42825F6DFAB00D989EF /* HangmanView.swift */; };
 		ABA6C43125F6E3E500D989EF /* APIfetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA6C43025F6E3E500D989EF /* APIfetchData.swift */; };
 		ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */; };
+		ABD201D525F80A7700203A09 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD201D425F80A7700203A09 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		ABA6C42825F6DFAB00D989EF /* HangmanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanView.swift; sourceTree = "<group>"; };
 		ABA6C43025F6E3E500D989EF /* APIfetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIfetchData.swift; sourceTree = "<group>"; };
 		ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		ABD201D425F80A7700203A09 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		AB6EA0D425E70B4E00450E51 /* MiniGames */ = {
 			isa = PBXGroup;
 			children = (
+				ABD201D425F80A7700203A09 /* Utilities.swift */,
 				ABAA4D0A25E83ABE00431A22 /* Modifiers.swift */,
 				ABA6C3FE25F6BFE800D989EF /* ViewsForGames */,
 				AB6EA10425E70B5700450E51 /* Models */,
@@ -335,6 +338,7 @@
 				ABAA4D0B25E83ABE00431A22 /* Modifiers.swift in Sources */,
 				ABA6C40E25F6C34A00D989EF /* HangmanPickerView.swift in Sources */,
 				ABA6C3FA25F6BFD100D989EF /* NavigationControllerView.swift in Sources */,
+				ABD201D525F80A7700203A09 /* Utilities.swift in Sources */,
 				ABA6C40925F6C1DF00D989EF /* ConnectFourGameState.swift in Sources */,
 				ABA6C40425F6C18E00D989EF /* Connect4PathFinding.swift in Sources */,
 				AB6EA0D825E70B4E00450E51 /* ConnectFourView.swift in Sources */,
