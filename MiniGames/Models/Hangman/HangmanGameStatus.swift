@@ -9,6 +9,7 @@ import Foundation
 
 class HangmanGameStatus : ObservableObject {
     @Published var theWord : String? = nil
+    @Published var isLoading : Bool = false
     
     func getWordFromOption(_ option : HangmanOptions, extraString : String){
         
@@ -17,7 +18,7 @@ class HangmanGameStatus : ObservableObject {
         }
         
         let topLevel = "https://api.datamuse.com/words"
-        let maximumParameter = "&max=10"
+        let maximumParameter = "&max=25"
         
         switch option {
         case .rhy:
@@ -30,6 +31,8 @@ class HangmanGameStatus : ObservableObject {
             makeDatabaseRequest(withUrl: topLevel + "?rel_hom=\(extraString)" + maximumParameter)
         case .animal:
             self.theWord = animalNames.randomElement()
+        case .ml:
+            makeDatabaseRequest(withUrl: topLevel + "?ml=\(extraString)" + maximumParameter)
         }
     }
 

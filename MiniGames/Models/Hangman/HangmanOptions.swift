@@ -13,7 +13,8 @@ enum HangmanOptions : String, CaseIterable {
          jjb = "Commonly Used Adjectives Of:",
          bbl = "Related To The Bible", //use topics=bible,christian
          hom = "Sounds Like:",
-         animal = "Random Animal" //random element from list below
+         animal = "Random Animal", //random element from list below
+         ml = "Related To:"
     
 }
 

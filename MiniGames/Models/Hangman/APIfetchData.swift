@@ -10,6 +10,7 @@ import Foundation
 extension HangmanGameStatus {
     func makeDatabaseRequest(withUrl url : String){
         let urlRequest = URLRequest(url: URL(string: url)!)
+        self.isLoading = true
         
         URLSession.shared.dataTask(with: urlRequest){ data, response, error in
             if error != nil {
@@ -25,6 +26,12 @@ extension HangmanGameStatus {
                 if let selectedWord = decodedResponse.randomElement() {
                     DispatchQueue.main.async {
                         self.theWord = selectedWord.word
+                        self.isLoading = false
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        //no words found
+                        self.isLoading = false
                     }
                 }
             }
