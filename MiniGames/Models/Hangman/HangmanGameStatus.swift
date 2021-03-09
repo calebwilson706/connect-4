@@ -7,15 +7,17 @@
 
 import Foundation
 
+
+
 class HangmanGameStatus : ObservableObject {
     @Published var theWord : String? = nil
     @Published var isLoading : Bool = false
     @Published var selectedLetters = [Character]()
     @Published var currentStage = 0
-    
+
     func getWordFromOption(_ option : HangmanOptions, extraString : String){
         
-        if extraString == "" && option != .bbl && option != .animal {
+        if extraString == "" && optionsWhichRequireTextField.contains(option) {
             return
         }
         
@@ -37,6 +39,8 @@ class HangmanGameStatus : ObservableObject {
             self.theWord = animalNames.randomElement()
         case .ml:
             makeDatabaseRequest(withUrl: topLevel + "?ml=\(extraString)" + maximumParameter)
+        case .bob:
+            self.theWord = booksOfBible.randomElement()
         }
     }
     

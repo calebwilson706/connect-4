@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HangmanPickerView: View {
-    let optionsWhichRequireTextField : [HangmanOptions] = [.rhy,.jjb,.hom,.ml]
     let optionsToSelect = HangmanOptions.allCases
     
     @State var selectedOverhangingOption = HangmanOptions.rhy

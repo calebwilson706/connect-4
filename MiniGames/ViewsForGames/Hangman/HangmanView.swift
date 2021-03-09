@@ -96,7 +96,6 @@ struct AlphabetView : View {
                 }){
                     Text(String(character)).font(.title)
                 }.buttonStyle(HangmanSelectLetterButtonStyle(disabled : self.gameState.selectedLetters.contains(character)))
-                
             }
         }.padding(.top)
     }

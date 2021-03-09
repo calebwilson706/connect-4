@@ -13,12 +13,14 @@ enum HangmanOptions : String, CaseIterable {
          jjb = "Commonly Used Adjectives Of:",
          bbl = "Related To The Bible", //use topics=bible,christian
          hom = "Sounds Like:",
-         animal = "Random Animal", //random element from list below
+         animal = "A Random Animal", //random element from list below
          ml = "Related To:",
-         custom = "Input Your Own Word:"
+         custom = "Input Your Own Word:",
+         bob = "A Random Book Of The Bible"
     
 }
 
+let optionsWhichRequireTextField : [HangmanOptions] = [.rhy,.jjb,.hom,.ml]
 
 let animalNames = [
     "Aardvark",
@@ -245,4 +247,64 @@ let animalNames = [
     "Wren",
     "Yak",
     "Zebra"
+]
+
+let booksOfBible = [
+    "Genesis",
+    "Exodus",
+    "Leviticus",
+    "Numbers",
+    "Deuteronomy",
+    "Joshua",
+    "Judges",
+    "Ruth",
+    "Samuel",
+    "Kings",
+    "Chronicles",
+    "Ezra",
+    "Nehemiah",
+    "Esther",
+    "Job",
+    "Psalms",
+    "Proverbs",
+    "Ecclesiastes",
+    "Song of Songs",
+    "Isaiah",
+    "Jeremiah",
+    "Lamentations",
+    "Ezekiel",
+    "Daniel",
+    "Hosea",
+    "Joel",
+    "Amos",
+    "Obadiah",
+    "Jonah",
+    "Micah",
+    "Nahum",
+    "Habakkuk",
+    "Zephaniah",
+    "Haggai",
+    "Zechariah",
+    "Malachi",
+    "Matthew",
+    "Mark",
+    "Luke",
+    "John",
+    "Acts",
+    "James",
+    "Peter",
+    "John",
+    "Jude",
+    "Romans",
+    "Corinthians",
+    "Galatians",
+    "Ephesians",
+    "Philippians",
+    "Colossians",
+    "Thessalonians",
+    "Timothy",
+    "Titus",
+    "Philemon",
+    "Hebrews",
+    "Revelation"
 ]
