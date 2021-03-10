@@ -18,13 +18,7 @@ struct ColumnHeaderButtonConnect4 : ButtonStyle {
                 .font(.title)
                 .padding(.all)
                 .background(Circle().fill(disabled ? Color.clear : Color.green).frame(width: 40, height: 40, alignment: .center))
-                .onHover(perform: { hovering in
-                    if hovering && !disabled {
-                        NSCursor.pointingHand.push()
-                    } else {
-                        NSCursor.pop()
-                    }
-                })
+                .modifier(CursorForButtonStyleMod(disableThisFeature: disabled))
     }
 }
 

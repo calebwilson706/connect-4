@@ -12,19 +12,19 @@ enum Directions : CaseIterable {
 }
 
 extension ConnectFourGrid {
-    func check(for amount : Int, starting : Point, previousDirection : Directions, currentPath : [Point] = []) -> [Point]?{
-        //print(starting)
+    func check(for amount : Int, starting : Point, previousDirection : Directions, currentPath : [Point] = []) -> [Point]? {
+        
         var working = currentPath
         working.append(starting)
         
         if amount == 1 {
-            //print("found")
             return working
         }
         let stack = grid[starting.x].values
         let valueToSearchFor = stack[starting.y].value
         
         switch previousDirection {
+        
         case .DOWN:
             if (starting.y != 5){
                 if stack[starting.y + 1].value == valueToSearchFor {
@@ -107,17 +107,19 @@ extension ConnectFourGrid {
                     }
                 }
             }
-            print(allPaths)
-            if ((allPaths[.DOWNLEFT]?.count ?? 0) + (allPaths[.UPRIGHT]?.count ?? 0)) == 5 {
-                return allPaths[.DOWNLEFT]! + allPaths[.UPRIGHT]!
+            
+            
+            
+            if let path = checkDirections(.DOWNLEFT, .UPRIGHT, allPaths) {
+                return path
             }
             
-            if ((allPaths[.LEFT]?.count ?? 0) + (allPaths[.RIGHT]?.count ?? 0)) == 5 {
-                return allPaths[.LEFT]! + allPaths[.RIGHT]!
+            if let path = checkDirections(.LEFT, .RIGHT, allPaths) {
+                return path
             }
             
-            if ((allPaths[.UPLEFT]?.count ?? 0) + (allPaths[.DOWNRIGHT]?.count ?? 0)) == 5 {
-                return allPaths[.UPLEFT]! + allPaths[.DOWNRIGHT]!
+            if let path = checkDirections(.UPLEFT, .DOWNRIGHT, allPaths) {
+                return path
             }
             
             return nil
@@ -129,5 +131,11 @@ extension ConnectFourGrid {
         for item in path {
             grid[item.x].values[item.y].value = .COMPLETE_FOUR
         }
+    }
+    func checkDirections(_ direct1 : Directions, _ direct2 : Directions, _ allPaths : [Directions : [Point]]) -> [Point]? {
+        if ((allPaths[direct1]?.count ?? 0) + (allPaths[direct2]?.count ?? 0)) == 5 {
+            return allPaths[direct1]! + allPaths[direct2]!
+        }
+        return nil
     }
 }

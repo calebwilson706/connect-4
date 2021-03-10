@@ -24,7 +24,6 @@ class ConnectFourStack : ObservableObject {
         }
         
         var index = values.count - 1
-        print(index)
         
         while values[index].value != .EMPTY {
             index -= 1

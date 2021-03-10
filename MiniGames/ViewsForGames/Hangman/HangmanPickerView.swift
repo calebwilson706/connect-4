@@ -38,7 +38,7 @@ struct HangmanPickerView: View {
                 }
                 
                 Button(action : {
-                    extraParameterForSpecificQueries = extraParameterForSpecificQueries.filter({ $0.isLetter })
+                    extraParameterForSpecificQueries = (selectedOverhangingOption == .custom ? extraParameterForSpecificQueries : extraParameterForSpecificQueries.filter({ $0.isLetter }))
                     getWordFromSelected(selectedOverhangingOption,extraParameterForSpecificQueries)
                 }){
                     Text("continue")

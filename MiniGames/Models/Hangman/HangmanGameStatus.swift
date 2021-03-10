@@ -38,11 +38,11 @@ class HangmanGameStatus : ObservableObject {
         case .hom:
             makeDatabaseRequest(withUrl: topLevel + "?rel_hom=\(extraString)" + maximumParameter)
         case .animal:
-            self.theWord = animalNames.randomElement()
+            self.theWord = animalNames.randomElement()!
         case .ml:
             makeDatabaseRequest(withUrl: topLevel + "?ml=\(extraString)" + maximumParameter)
         case .bob:
-            self.theWord = booksOfBible.randomElement()
+            self.theWord = booksOfBible.randomElement()!
         }
     }
     
@@ -50,7 +50,7 @@ class HangmanGameStatus : ObservableObject {
         
         self.selectedLetters.append(char)
         
-        if !theWord!.contains(char.lowercased()){
+        if !theWord!.uppercased().contains(char.uppercased()){
             currentStage += 1
         }
         

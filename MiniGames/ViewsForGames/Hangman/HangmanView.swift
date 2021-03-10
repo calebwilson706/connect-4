@@ -17,22 +17,28 @@ struct HangmanView: View {
         HStack {
             Spacer()
             Button(action: {
-                gameStatus.reset()
+                resetGame()
             }){
                Image(systemName: "arrow.uturn.backward.circle.fill")
             }.buttonStyle(HangmanResetButtonStyle())
         }.padding(.trailing,25)
     }
+    
+    var hangmanImage : some View {
+        Image("h-man-image-\(gameStatus.currentStage)")
+            .resizable()
+            .scaledToFit()
+            .frame(maxHeight : 300)
+            .padding(.all)
+    }
+    
+    
     var body: some View {
         VStack {
             if let wordToDisplay = gameStatus.theWord?.uppercased() {
                 headerView
                 Spacer()
-                Image("h-man-image-\(gameStatus.currentStage)")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight : 300)
-                    .padding(.all)
+                hangmanImage
                 Group {
                     HStack(spacing : 20) {
                         ForEach(0..<wordToDisplay.count) { index in
@@ -53,21 +59,25 @@ struct HangmanView: View {
             Alert(title: Text( hasWonGame ? "Yay!" : "Oh Nooo!"),
                   message: Text("You \(hasWonGame ? "Won" : "Lost") : The Word Was \(self.gameStatus.theWord!.capitalized)"),
                   dismissButton: .default(Text("Reset Game")) {
-                    self.gameStatus.reset()
+                    resetGame()
                   }
             )
         }
     }
     
     func checkIsGameOver() {
-        if self.gameStatus.currentStage == 9 {
+        if !self.gameStatus.theWord!.filter({ $0.isLetter }).uppercased().contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
+            self.hasWonGame = true
             self.isGameOver = true
-        } else {
-            if !self.gameStatus.theWord!.uppercased().contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
-                self.hasWonGame = true
-                self.isGameOver = true
-            }
+        } else if self.gameStatus.currentStage >= 9 {
+            self.isGameOver = true
         }
+    }
+    
+    func resetGame() {
+        self.hasWonGame = false
+        self.isGameOver = false
+        gameStatus.reset()
     }
     
     

@@ -12,27 +12,28 @@ struct ConnectFourView: View {
     @ObservedObject var myGrid = ConnectFourGrid()
     @State var showPopUp = false
     
-    
+    var header : some View {
+        HStack {
+            Spacer()
+            Button(action : {
+                changeCurrentTeam()
+            }){
+                Text("Wrong Answer")
+            }
+            Text("Current Team : " + gameState.currentTeam.rawValue)
+            Spacer()
+            Button(action : {
+                resetGame()
+            }){
+                Text("Reset Game")
+            }
+            Spacer()
+            
+        }.padding()
+    }
     var body: some View {
         VStack{
-            HStack {
-                Spacer()
-                Button(action : {
-                    changeCurrentTeam()
-                }){
-                    Text("Wrong Answer")
-                }
-                Text("Current Team : " + gameState.currentTeam.rawValue)
-                Spacer()
-                Button(action : {
-                    resetGame()
-                }){
-                    Text("Reset Game")
-                }
-                Spacer()
-                
-            }.padding()
-            
+            header
             HStack {
                 ForEach(myGrid.grid, id: \.id){ stack in
                     VStack {
@@ -41,6 +42,7 @@ struct ConnectFourView: View {
                         }){
                             Text(stack.id)
                         }.buttonStyle(ColumnHeaderButtonConnect4(disabled : stack.values[0].value != .EMPTY))
+                        .disabled(stack.values[0].value != .EMPTY)
                         ForEach(stack.values, id :\.id){ counter in
                             CounterView(status: counter.value, number: counter.points)
                         }
