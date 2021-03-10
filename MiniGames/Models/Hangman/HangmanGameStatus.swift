@@ -15,6 +15,8 @@ class HangmanGameStatus : ObservableObject {
     @Published var selectedLetters = [Character]()
     @Published var currentStage = 0
 
+    
+    
     func getWordFromOption(_ option : HangmanOptions, extraString : String){
         
         if extraString == "" && optionsWhichRequireTextField.contains(option) {
@@ -46,12 +48,10 @@ class HangmanGameStatus : ObservableObject {
     
     func addLetterToSelected(_ char : Character) {
         
-        if currentStage < 9 {
-            self.selectedLetters.append(char)
-            
-            if !theWord!.contains(char.lowercased()){
-                currentStage += 1
-            }
+        self.selectedLetters.append(char)
+        
+        if !theWord!.contains(char.lowercased()){
+            currentStage += 1
         }
         
     }
@@ -61,5 +61,6 @@ class HangmanGameStatus : ObservableObject {
         self.selectedLetters = []
         self.currentStage = 0
     }
-
+    
+    
 }

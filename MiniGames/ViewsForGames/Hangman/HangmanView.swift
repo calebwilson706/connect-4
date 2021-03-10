@@ -10,6 +10,9 @@ import SwiftUI
 struct HangmanView: View {
     @ObservedObject var gameStatus = HangmanGameStatus()
     
+    @State var isGameOver = false
+    @State var hasWonGame = false
+    
     var headerView : some View {
         HStack {
             Spacer()
@@ -38,7 +41,7 @@ struct HangmanView: View {
                         }
                     }.font(.largeTitle)
                     
-                    AlphabetView(returnCharacter: self.gameStatus.addLetterToSelected)
+                    AlphabetView(returnCharacter: self.gameStatus.addLetterToSelected, checkIsGameOver: self.checkIsGameOver)
                 }.environmentObject(self.gameStatus)
                 
                 Spacer()
@@ -46,8 +49,28 @@ struct HangmanView: View {
             } else {
                 HangmanPickerView(getWordFromSelected: gameStatus.getWordFromOption, isLoadingWord: gameStatus.isLoading)
             }
+        }.alert(isPresented: $isGameOver){
+            Alert(title: Text( hasWonGame ? "Yay!" : "Oh Nooo!"),
+                  message: Text("You \(hasWonGame ? "Won" : "Lost") : The Word Was \(self.gameStatus.theWord!.capitalized)"),
+                  dismissButton: .default(Text("Reset Game")) {
+                    self.gameStatus.reset()
+                  }
+            )
         }
     }
+    
+    func checkIsGameOver() {
+        if self.gameStatus.currentStage == 9 {
+            self.isGameOver = true
+        } else {
+            if !self.gameStatus.theWord!.uppercased().contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
+                self.hasWonGame = true
+                self.isGameOver = true
+            }
+        }
+    }
+    
+    
 }
 
 struct HangmanView_Previews: PreviewProvider {
@@ -85,18 +108,23 @@ struct AlphabetView : View {
     ]
     
     let returnCharacter : (Character) -> Void
+    let checkIsGameOver : () -> Void
     
     var body : some View {
         LazyVGrid(columns: layout, spacing : 20) {
             ForEach(65..<91){ ascii in
                 let character = Character(UnicodeScalar(ascii)!)
-                
+                let shouldDisable = self.gameState.selectedLetters.contains(character)
+                    
                 Button(action: {
                     returnCharacter(character)
+                    checkIsGameOver()
                 }){
                     Text(String(character)).font(.title)
-                }.buttonStyle(HangmanSelectLetterButtonStyle(disabled : self.gameState.selectedLetters.contains(character)))
+                }.buttonStyle(HangmanSelectLetterButtonStyle(disabled : shouldDisable))
+                .disabled(shouldDisable)
             }
         }.padding(.top)
     }
+    
 }
