@@ -13,6 +13,8 @@ struct HangmanView: View {
     @State var isGameOver = false
     @State var hasWonGame = false
     
+    @State var wordGuess = ""
+    
     var headerView : some View {
         HStack {
             Spacer()
@@ -32,13 +34,26 @@ struct HangmanView: View {
             .padding(.all)
     }
     
-    
+    var guessFullWordView : some View {
+        VStack {
+            TextField("Guess Here...", text: $wordGuess)
+                .frame(maxWidth : 150)
+            Button(action: {
+                handleGuess()
+            }){
+                Text("Submit")
+            }
+        }
+    }
     var body: some View {
         VStack {
             if let wordToDisplay = gameStatus.theWord?.uppercased() {
                 headerView
                 Spacer()
-                hangmanImage
+                HStack {
+                    hangmanImage
+                    guessFullWordView
+                }.padding(.leading,150)
                 Group {
                     HStack(spacing : 20) {
                         ForEach(0..<wordToDisplay.count) { index in
@@ -66,7 +81,7 @@ struct HangmanView: View {
     }
     
     func checkIsGameOver() {
-        if !self.gameStatus.theWord!.filter({ $0.isLetter }).uppercased().contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
+        if !modifyThisStringForComparison(self.gameStatus.theWord!).contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
             self.hasWonGame = true
             self.isGameOver = true
         } else if self.gameStatus.currentStage >= 9 {
@@ -77,9 +92,24 @@ struct HangmanView: View {
     func resetGame() {
         self.hasWonGame = false
         self.isGameOver = false
+        self.wordGuess = ""
         gameStatus.reset()
     }
     
+    func handleGuess() {
+        if modifyThisStringForComparison(self.wordGuess) == modifyThisStringForComparison(self.gameStatus.theWord!)  {
+            self.gameStatus.selectedLetters = []
+            //empties selected so it looks complete
+            self.hasWonGame = true
+            self.isGameOver = true
+        } else {
+            self.wordGuess = ""
+            self.gameStatus.currentStage += 1
+            checkIsGameOver()
+        }
+    }
+    
+    func modifyThisStringForComparison(_ str : String) -> String { return str.uppercased().filter { $0.isLetter }}
     
 }
 
