@@ -16,33 +16,43 @@ struct HangmanPickerView: View {
     let getWordFromSelected : (HangmanOptions, String) -> Void
     var isLoadingWord : Bool
     
+    var correctTextFieldView : some View {
+        Group {
+            if (optionsWhichRequireTextField
+                    .contains(selectedOverhangingOption)) {
+                TextField("", text: $extraParameterForSpecificQueries)
+                    
+            }
+            if (selectedOverhangingOption == .custom){
+                SecureField("", text: $extraParameterForSpecificQueries)
+            }
+        }
+    }
+    
+    var continueButton : some View {
+        Button(action : {
+            extraParameterForSpecificQueries = (selectedOverhangingOption == .custom ? extraParameterForSpecificQueries : extraParameterForSpecificQueries.filter({ $0.isLetter }))
+            getWordFromSelected(selectedOverhangingOption,extraParameterForSpecificQueries)
+        }){
+            Text("continue")
+        }
+    }
+    var optionPickerView : some View {
+        Picker("", selection: $selectedOverhangingOption){
+            ForEach(optionsToSelect, id : \.self){
+                Text($0.rawValue)
+                    .tag($0)
+            }
+        }
+    }
     var body: some View {
         VStack {
             if !isLoadingWord {
                 HStack {
-                    Picker("", selection: $selectedOverhangingOption){
-                        ForEach(optionsToSelect, id : \.self){
-                            Text($0.rawValue)
-                                .tag($0)
-                        }
-                    }
-                    
-                    if (optionsWhichRequireTextField
-                            .contains(selectedOverhangingOption)) {
-                        TextField("", text: $extraParameterForSpecificQueries)
-                            
-                    }
-                    if (selectedOverhangingOption == .custom){
-                        SecureField("", text: $extraParameterForSpecificQueries)
-                    }
+                    optionPickerView
+                    correctTextFieldView
                 }
-                
-                Button(action : {
-                    extraParameterForSpecificQueries = (selectedOverhangingOption == .custom ? extraParameterForSpecificQueries : extraParameterForSpecificQueries.filter({ $0.isLetter }))
-                    getWordFromSelected(selectedOverhangingOption,extraParameterForSpecificQueries)
-                }){
-                    Text("continue")
-                }
+                continueButton
             } else {
                Text("Loading...")
             }
@@ -56,3 +66,6 @@ struct HangmanPickerView: View {
 //        HangmanPickerView(getWordFromSelected: game.getWordFromOption, isLoadingWord: game.isLoading)
 //    }
 //}
+
+
+

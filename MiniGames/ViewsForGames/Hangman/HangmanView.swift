@@ -82,8 +82,7 @@ struct HangmanView: View {
     
     func checkIsGameOver() {
         if !modifyThisStringForComparison(self.gameStatus.theWord!).contains(where: { !self.gameStatus.selectedLetters.contains($0) }) {
-            self.hasWonGame = true
-            self.isGameOver = true
+            gameHasBeenWon()
         } else if self.gameStatus.currentStage >= 9 {
             self.isGameOver = true
         }
@@ -95,13 +94,13 @@ struct HangmanView: View {
         self.wordGuess = ""
         gameStatus.reset()
     }
-    
+    func gameHasBeenWon() {
+        self.hasWonGame = true
+        self.isGameOver = true
+    }
     func handleGuess() {
         if modifyThisStringForComparison(self.wordGuess) == modifyThisStringForComparison(self.gameStatus.theWord!)  {
-            self.gameStatus.selectedLetters = []
-            //empties selected so it looks complete
-            self.hasWonGame = true
-            self.isGameOver = true
+            gameHasBeenWon()
         } else {
             self.wordGuess = ""
             self.gameStatus.currentStage += 1

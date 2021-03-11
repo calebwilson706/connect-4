@@ -17,12 +17,7 @@ class ConnectFourStack : ObservableObject {
         id = char
     }
     
-    func addCounter(colour : TheStatusOfCounter) -> Int? {
-        
-        if values[0].value != .EMPTY {
-            return nil
-        }
-        
+    func addCounter(colour : TheStatusOfCounter) -> Int {
         var index = values.count - 1
         
         while values[index].value != .EMPTY {
@@ -54,27 +49,28 @@ struct Point {
     var x : Int
     var y : Int
     
-    func down() -> Point {
-        return Point(x: x, y: y + 1)
+    func move(direction : Directions) -> Point {
+        switch direction {
+        
+        case .DOWN:
+            return Point(x: x, y: y + 1)
+        case .LEFT:
+            return Point(x: x - 1, y: y)
+        case .RIGHT:
+            return Point(x: x + 1, y: y)
+        case .UPLEFT:
+            return Point(x: x - 1, y: y - 1)
+        case .UPRIGHT:
+            return Point(x: x + 1, y: y - 1)
+        case .DOWNLEFT:
+            return Point(x: x - 1, y: y + 1)
+        case .DOWNRIGHT:
+            return Point(x: x + 1, y: y + 1)
+        case .NONE:
+            return self
+        }
     }
-    func left() -> Point {
-        return Point(x: x - 1, y: y)
-    }
-    func right() -> Point {
-        return Point(x: x + 1, y: y)
-    }
-    func upleft() -> Point {
-        return Point(x: x - 1, y: y - 1)
-    }
-    func upright() -> Point {
-        return Point(x: x + 1, y: y - 1)
-    }
-    func downleft() -> Point {
-        return Point(x: x - 1, y: y + 1)
-    }
-    func downright() -> Point {
-        return Point(x: x + 1, y: y + 1)
-    }
+  
 }
 
 

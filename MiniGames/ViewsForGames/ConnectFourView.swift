@@ -74,26 +74,34 @@ struct ConnectFourView: View {
     }
     
     func addCounter(to stack : ConnectFourStack){
+        
+        let placedAtPoint = placeCounterAndGetCoordinates(stack: stack)
+        
+        
+        updateTotal(team: gameState.currentTeam, by: myGrid.grid[placedAtPoint.x].values[placedAtPoint.y].points )
+        let completedItems =  myGrid.check(for: 4, starting: Point(x : placedAtPoint.x, y : placedAtPoint.y), previousDirection: .NONE)
+        
+        if let fourItemsInARow = completedItems {
+            gameHasEnded(with: fourItemsInARow)
+        } else {
+            changeCurrentTeam()
+        }
+        
+    }
+    
+    func placeCounterAndGetCoordinates(stack : ConnectFourStack) -> Point {
         let x = myGrid.grid.firstIndex {$0.id == stack.id}!
         let stackToModify = myGrid.grid[x]
         let y = stackToModify.addCounter(colour : gameState.currentTeam)
         
-        
-        
         myGrid.grid[x] = stackToModify
-        
-        if y != nil {
-            updateTotal(team: gameState.currentTeam, by: myGrid.grid[x].values[y!].points )
-            let completedItems =  myGrid.check(for: 4, starting: Point(x : x, y : y!), previousDirection: .NONE)
-            
-            if completedItems != nil {
-                myGrid.showFourInARow(path: completedItems!)
-                updateTotal(team: gameState.currentTeam, by: 200)
-                self.showPopUp = true
-            } else {
-                changeCurrentTeam()
-            }
-        }
+        return Point(x: x, y: y)
+    }
+    
+    func gameHasEnded(with counters : [Point]) {
+        myGrid.showFourInARow(path: counters)
+        updateTotal(team: gameState.currentTeam, by: 200)
+        self.showPopUp = true
     }
     
     func updateTotal(team : TheStatusOfCounter, by amount : Int){

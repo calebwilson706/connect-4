@@ -9,10 +9,14 @@ import Foundation
 
 enum Directions : CaseIterable {
     case DOWN, LEFT,RIGHT ,UPLEFT , UPRIGHT, DOWNLEFT, DOWNRIGHT, NONE
+    
 }
 
 extension ConnectFourGrid {
-    func check(for amount : Int, starting : Point, previousDirection : Directions, currentPath : [Point] = []) -> [Point]? {
+    func check(for amount : Int,
+               starting : Point, previousDirection : Directions,
+               currentPath : [Point] = []
+    ) -> [Point]? {
         
         var working = currentPath
         working.append(starting)
@@ -20,122 +24,72 @@ extension ConnectFourGrid {
         if amount == 1 {
             return working
         }
-        let stack = grid[starting.x].values
-        let valueToSearchFor = stack[starting.y].value
         
-        switch previousDirection {
+        let valueToSearchFor = grid[starting.x].values[starting.y].value
         
-        case .DOWN:
-            if (starting.y != 5){
-                if stack[starting.y + 1].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.down(), previousDirection: .DOWN,currentPath: working)
-                } else {
-                    return currentPath
-                }
-            } else {
-                return currentPath
-            }
-        case .LEFT:
-            if (starting.x != 0){
-                if grid[starting.x - 1].values[starting.y].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.left(), previousDirection: .LEFT,currentPath: working)
-                } else {
-                    return working
-                }
+        if previousDirection != .NONE {
+            let nextPoint = starting.move(direction: previousDirection)
+            
+            if checkIfValueIsEqual(valueToSearchFor, point: nextPoint) {
+                return check(for: amount - 1, starting: nextPoint, previousDirection: previousDirection, currentPath: working)
             } else {
                 return working
             }
-        case .RIGHT:
-            if (starting.x != 6){
-                if grid[starting.x + 1].values[starting.y].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.right(), previousDirection: .RIGHT, currentPath: working)
-                } else {
-                    return working
-                }
-            } else {
-                return working
-            }
-        case .UPLEFT:
-            if (starting.x != 0 && starting.y != 0){
-                if grid[starting.x - 1].values[starting.y - 1].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.upleft(), previousDirection: .UPLEFT, currentPath: working)
-                } else {
-                    return working
-                }
-            } else {
-                return working
-            }
-        case .UPRIGHT:
-            if (starting.x != 6 && starting.y != 0){
-                if grid[starting.x + 1].values[starting.y - 1].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.upright(), previousDirection: .UPRIGHT, currentPath: working)
-                } else {
-                    return working
-                }
-            } else {
-                return working
-            }
-        case .DOWNLEFT:
-            if (starting.x != 0 && starting.y != 5){
-                if grid[starting.x - 1].values[starting.y + 1].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.downleft(), previousDirection: .DOWNLEFT,currentPath: working)
-                } else {
-                    return working
-                }
-            } else {
-                return working
-            }
-        case .DOWNRIGHT:
-            if (starting.x != 6 && starting.y != 5){
-                if grid[starting.x + 1].values[starting.y + 1].value == valueToSearchFor {
-                    return check(for: amount - 1, starting: starting.downright(), previousDirection: .DOWNRIGHT,currentPath: working)
-                } else {
-                    return working
-                }
-            } else {
-                return working
-            }
-        case .NONE:
+            
+        } else {
             var allPaths : [Directions : [Point]] = [:]
-            
-            for item in Directions.allCases {
-                if item != .NONE {
-                    allPaths[item] = check(for: 4, starting: starting, previousDirection: item)
-                    
-                    if allPaths[item]?.count == 4 {
-                        return allPaths[item]!
-                    }
+            var allDirections = Directions.allCases
+            allDirections.removeAll { $0 == .NONE}
+           
+            for item in  allDirections{
+                allPaths[item] = check(for: 4, starting: starting, previousDirection: item)
+                
+                if allPaths[item]?.count == 4 {
+                    return allPaths[item]!
                 }
             }
             
-            
-            
-            if let path = checkDirections(.DOWNLEFT, .UPRIGHT, allPaths) {
+            if let path = checkDirectionsCombineForFull(.DOWNLEFT, .UPRIGHT, allPaths) {
                 return path
+            } else if let path = checkDirectionsCombineForFull(.LEFT, .RIGHT, allPaths) {
+                return path
+            } else if let path = checkDirectionsCombineForFull(.UPLEFT, .DOWNRIGHT, allPaths) {
+                return path
+            } else {
+                return nil
             }
             
-            if let path = checkDirections(.LEFT, .RIGHT, allPaths) {
-                return path
-            }
-            
-            if let path = checkDirections(.UPLEFT, .DOWNRIGHT, allPaths) {
-                return path
-            }
-            
-            return nil
         }
         
     }
+
     
     func showFourInARow(path : [Point]){
         for item in path {
             grid[item.x].values[item.y].value = .COMPLETE_FOUR
         }
     }
-    func checkDirections(_ direct1 : Directions, _ direct2 : Directions, _ allPaths : [Directions : [Point]]) -> [Point]? {
-        if ((allPaths[direct1]?.count ?? 0) + (allPaths[direct2]?.count ?? 0)) == 5 {
-            return allPaths[direct1]! + allPaths[direct2]!
+    
+    private func checkDirectionsCombineForFull(_ direct1 : Directions,
+                                               _ direct2 : Directions,
+                                               _ allPaths : [Directions : [Point]]
+    ) -> [Point]? {
+        let countOfBothPaths = (allPaths[direct1]?.count ?? 0) + (allPaths[direct2]?.count ?? 0)
+        if (countOfBothPaths) >= 5 {
+            let combo = allPaths[direct1]! + allPaths[direct2]!
+            return (countOfBothPaths == 5) ? combo : combo.dropLast()
         }
         return nil
     }
+    
+    private func checkIfValueIsEqual(_ valueToSearch : TheStatusOfCounter,
+                                     point : Point
+                                     ) -> Bool {
+        if (point.x > 6) || (point.x < 0) || (point.y < 0) || (point.y > 5){
+            return false
+        } else {
+            return grid[point.x].values[point.y].value == valueToSearch
+        }
+    }
+    
 }
