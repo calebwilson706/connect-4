@@ -11,11 +11,13 @@ struct NavigationControllerView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: ConnectFourView()) {
-                    Text("Connect 4")
-                }
-                NavigationLink(destination: HangmanView()) {
-                    Text("Hangman")
+                NavigationLink ("Connect Four", destination: ConnectFourView())
+                NavigationLink("Hangman", destination: HangmanView())
+            }
+        }.toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button(action: toggleSidebar){
+                    Image(systemName: "sidebar.left")
                 }
             }
         }
@@ -26,4 +28,10 @@ struct NavigationControllerView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationControllerView()
     }
+}
+
+func toggleSidebar() {
+    #if os(macOS)
+    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+    #endif
 }

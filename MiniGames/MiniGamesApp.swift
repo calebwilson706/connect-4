@@ -12,6 +12,9 @@ struct MiniGames: App {
     var body: some Scene {
         WindowGroup {
             NavigationControllerView()
+        }.commands {
+            SidebarCommands()
         }
+        
     }
 }
