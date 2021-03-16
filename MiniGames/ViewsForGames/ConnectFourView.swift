@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ConnectFourView: View {
-    @ObservedObject var gameState = ConnectFourGameState()
-    @ObservedObject var myGrid = ConnectFourGrid()
-    @State var showPopUp = false
+    @ObservedObject private var gameState = ConnectFourGameState()
+    @ObservedObject private var myGrid = ConnectFourGrid()
+    @State private var showPopUp = false
+    @State private var gameHasBeenEndedManually = false
     
     var header : some View {
         HStack {
@@ -22,6 +23,12 @@ struct ConnectFourView: View {
             }
             Text("Current Team : " + gameState.currentTeam.rawValue)
             Spacer()
+            Button(action: {
+                self.gameHasBeenEndedManually = true
+                self.showPopUp = true
+            }){
+                Text("End Game And Get Scores")
+            }
             Button(action : {
                 resetGame()
             }){
@@ -31,6 +38,7 @@ struct ConnectFourView: View {
             
         }.padding()
     }
+    
     var body: some View {
         VStack{
             header
@@ -50,16 +58,8 @@ struct ConnectFourView: View {
                 }
             }.padding()
         }.alert(isPresented: $showPopUp){
-            var message = ""
-            var title = ""
-            
-            if gameState.scores[.RED] == gameState.scores[.BLUE] {
-                title = "Congratulations To The \(gameState.currentTeam.rawValue) Team!"
-                message = "Both Teams Scored \(gameState.scores[.RED]!) points however since \(gameState.currentTeam.rawValue) got four in a row they win."
-            } else {
-                title = "Congratulations To The \(gameState.scores[.RED]! > gameState.scores[.BLUE]! ? "Red" : "Blue") Team!"
-                message = "\(gameState.currentTeam.rawValue) Have 4 In A Row, The Red Team Scored \(gameState.scores[.RED]!) points and the Blue team scored \(gameState.scores[.BLUE]!) points"
-            }
+            let message = getMessageForEndOfGame()
+            let title = getTitleForEndOfGame()
             
             return Alert(title: Text(title),
                   message: Text(message),
@@ -69,11 +69,11 @@ struct ConnectFourView: View {
         }
     }
     
-    func changeCurrentTeam() {
+    private func changeCurrentTeam() {
         gameState.currentTeam = (gameState.currentTeam == .BLUE) ? .RED : .BLUE
     }
     
-    func addCounter(to stack : ConnectFourStack){
+    private func addCounter(to stack : ConnectFourStack){
         
         let placedAtPoint = placeCounterAndGetCoordinates(stack: stack)
         
@@ -89,7 +89,7 @@ struct ConnectFourView: View {
         
     }
     
-    func placeCounterAndGetCoordinates(stack : ConnectFourStack) -> Point {
+    private func placeCounterAndGetCoordinates(stack : ConnectFourStack) -> Point {
         let x = myGrid.grid.firstIndex {$0.id == stack.id}!
         let stackToModify = myGrid.grid[x]
         let y = stackToModify.addCounter(colour : gameState.currentTeam)
@@ -98,21 +98,54 @@ struct ConnectFourView: View {
         return Point(x: x, y: y)
     }
     
-    func gameHasEnded(with counters : [Point]) {
+    private func gameHasEnded(with counters : [Point]) {
         myGrid.showFourInARow(path: counters)
         updateTotal(team: gameState.currentTeam, by: 200)
         self.showPopUp = true
     }
     
-    func updateTotal(team : TheStatusOfCounter, by amount : Int){
+    private func updateTotal(team : TheStatusOfCounter, by amount : Int){
         gameState.scores[team]! += amount
     }
     
-    func resetGame() {
+    private func resetGame() {
         myGrid.grid = ConnectFourGrid().grid
         self.gameState.scores[.RED] = 0
         self.gameState.scores[.BLUE] = 0
         self.gameState.currentTeam = .RED
+        self.gameHasBeenEndedManually = false
+    }
+    
+    private func getTitleForEndOfGame() -> String {
+        let congratulations = "Congratulations To The "
+        
+        
+        if let winner = getWinningTeam() {
+            return congratulations + winner.rawValue + " Team!"
+        } else if gameHasBeenEndedManually {
+            return "It's A Tie!"
+        } else {
+            return congratulations + gameState.currentTeam.rawValue + " Team!"
+        }
+        
+    }
+    
+    private func getMessageForEndOfGame() -> String {
+        if getWinningTeam() != nil {
+            return "The Red Team Scored \(gameState.scores[.RED]!) Points And The Blue Team Scored \(gameState.scores[.BLUE]!) Points!"
+        } else {
+            let equalPointsString = "Both teams scored equal points!"
+            
+            return equalPointsString + (gameHasBeenEndedManually ? "" : " However The \(gameState.currentTeam.rawValue) Team Got Four In A Row So They Win!")
+        }
+    }
+    
+    private func getWinningTeam() -> TheStatusOfCounter? {
+        return (
+            gameState.scores[.RED] == gameState.scores[.BLUE]
+                ? nil : gameState.scores.max(by: { $0.value < $1.value })!.key
+            
+        )
     }
 }
 
