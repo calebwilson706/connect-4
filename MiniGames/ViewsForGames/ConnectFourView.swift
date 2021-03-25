@@ -7,11 +7,21 @@
 
 import SwiftUI
 
+enum ConnectFourPointsOptions : String, CaseIterable {
+    case usePoints = "Use random score for each counter"
+    case noPoints = "Don't use random points"
+}
+
+
+
 struct ConnectFourView: View {
     @ObservedObject private var gameState = ConnectFourGameState()
     @ObservedObject private var myGrid = ConnectFourGrid()
     @State private var showPopUp = false
     @State private var gameHasBeenEndedManually = false
+    
+    @State private var gameOption = ConnectFourPointsOptions.usePoints
+    @State private var gameNotStarted = true
     
     var header : some View {
         HStack {
@@ -39,24 +49,42 @@ struct ConnectFourView: View {
         }.padding()
     }
     
+    var pickGameOptionView : some View {
+        VStack {
+            Picker("", selection: self.$gameOption) {
+                ForEach(ConnectFourPointsOptions.allCases, id : \.self) { option in
+                    Text(option.rawValue)
+                }
+            }
+            Button(action : {
+                gameNotStarted = false
+            }) {
+                Text("Continue")
+            }
+        }
+    }
     var body: some View {
         VStack{
-            header
-            HStack {
-                ForEach(myGrid.grid, id: \.id){ stack in
-                    VStack {
-                        Button(action: {
-                            addCounter(to: stack)
-                        }){
-                            Text(stack.id)
-                        }.buttonStyle(ColumnHeaderButtonConnect4(disabled : stack.values[0].value != .EMPTY))
-                        .disabled(stack.values[0].value != .EMPTY)
-                        ForEach(stack.values, id :\.id){ counter in
-                            CounterView(status: counter.value, number: counter.points)
+            if gameNotStarted {
+                pickGameOptionView
+            } else {
+                header
+                HStack {
+                    ForEach(myGrid.grid, id: \.id){ stack in
+                        VStack {
+                            Button(action: {
+                                addCounter(to: stack)
+                            }){
+                                Text(stack.id)
+                            }.buttonStyle(ColumnHeaderButtonConnect4(disabled : stack.values[0].value != .EMPTY))
+                            .disabled(stack.values[0].value != .EMPTY)
+                            ForEach(stack.values, id :\.id){ counter in
+                                CounterView(status: counter.value, number: counter.points, gameOption: gameOption)
+                            }
                         }
                     }
-                }
-            }.padding()
+                }.padding()
+            }
         }.alert(isPresented: $showPopUp){
             let message = getMessageForEndOfGame()
             let title = getTitleForEndOfGame()
@@ -114,11 +142,15 @@ struct ConnectFourView: View {
         self.gameState.scores[.BLUE] = 0
         self.gameState.currentTeam = .RED
         self.gameHasBeenEndedManually = false
+        self.gameNotStarted = true
     }
     
     private func getTitleForEndOfGame() -> String {
         let congratulations = "Congratulations To The "
         
+        if self.gameOption == .noPoints {
+            return "The \(gameState.currentTeam.rawValue) Are The Winners!"
+        }
         
         if let winner = getWinningTeam() {
             return congratulations + winner.rawValue + " Team!"
@@ -131,6 +163,9 @@ struct ConnectFourView: View {
     }
     
     private func getMessageForEndOfGame() -> String {
+        if self.gameOption == .noPoints {
+            return "The \(gameState.currentTeam.rawValue) Got 4 In A Row!"
+        }
         if getWinningTeam() != nil {
             return "The Red Team Scored \(gameState.scores[.RED]!) Points And The Blue Team Scored \(gameState.scores[.BLUE]!) Points!"
         } else {
@@ -159,13 +194,15 @@ struct ContentFourView_Previews: PreviewProvider {
 struct CounterView : View {
     var status : TheStatusOfCounter
     var number : Int
+    var gameOption : ConnectFourPointsOptions
+    
     var body: some View {
         ZStack {
             
             Circle()
             .fill(status == .EMPTY ? Color.gray : (status == .BLUE ? Color.blue : ( status == .RED ? Color.red : Color.yellow)))
             
-            if status != .EMPTY {
+            if status != .EMPTY && gameOption == .usePoints {
                 Text("\(number)")
                     .bold()
             }
@@ -175,6 +212,6 @@ struct CounterView : View {
 
 struct CounterView_Previews: PreviewProvider {
     static var previews: some View {
-        CounterView(status: .EMPTY, number: 10)
+        CounterView(status: .EMPTY, number: 10, gameOption: .usePoints)
     }
 }
